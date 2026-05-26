@@ -285,6 +285,7 @@ Para manter o código coerente com a proposta do projeto, foram adotadas as segu
 
 Projeto desenvolvido em grupo para a disciplina de Web Design.
 Ana Carolina Silva Borges
+Eduardo
 Marielle Rodrigues Vaz
 Stéphany Lima Vital
 
