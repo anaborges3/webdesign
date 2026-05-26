@@ -1,0 +1,961 @@
+@use './variaveis' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: $cor-fundo-pagina;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: $fonte-principal;
+  color: $cor-azul-escuro;
+  background:
+    radial-gradient(circle at 50% 7%, rgba(255, 255, 255, 0.98), transparent 36%),
+    linear-gradient(135deg, #eef3f8 0%, #f7f8fc 42%, #eef3f8 100%);
+}
+
+button {
+  font-family: inherit;
+}
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 54px 24px;
+}
+
+.vitrine-celulares {
+  width: min(100%, 930px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 58px;
+}
+
+/* =========================
+   MOLDURA MOBILE
+========================= */
+
+.moldura-celular {
+  position: relative;
+  width: 330px;
+  height: 640px;
+  overflow: hidden;
+  border-radius: 30px;
+  background: $cor-branco;
+  box-shadow:
+    0 34px 80px rgba(38, 47, 96, 0.09),
+    0 8px 22px rgba(38, 47, 96, 0.05);
+}
+
+.barra-status {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 27px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #11111a;
+  z-index: 10;
+  position: relative;
+}
+
+.status-icones {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sinal {
+  width: 17px;
+  height: 12px;
+  display: inline-block;
+  background:
+    linear-gradient(to top, #11111a 30%, transparent 30%) 0 100% / 3px 100% no-repeat,
+    linear-gradient(to top, #11111a 45%, transparent 45%) 5px 100% / 3px 100% no-repeat,
+    linear-gradient(to top, #11111a 65%, transparent 65%) 10px 100% / 3px 100% no-repeat,
+    linear-gradient(to top, #11111a 85%, transparent 85%) 15px 100% / 3px 100% no-repeat;
+}
+
+.wifi-status {
+  width: 14px;
+  height: 10px;
+  border: 3px solid #11111a;
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+  transform: scaleX(0.88);
+}
+
+.bateria {
+  width: 20px;
+  height: 9px;
+  border-radius: 3px;
+  background: #11111a;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 3px;
+    width: 2px;
+    height: 3px;
+    border-radius: 0 2px 2px 0;
+    background: #11111a;
+  }
+}
+
+.botao-icone {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: $cor-azul-escuro;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.botao-icone--claro {
+  color: $cor-branco;
+}
+
+/* =========================
+   AVATARES
+========================= */
+
+.avatar {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: $cor-cinza-claro;
+  box-shadow: 0 14px 25px rgba(56, 54, 129, 0.08);
+
+  &--pequeno {
+    width: 39px;
+    height: 39px;
+    border-radius: 9px;
+  }
+
+  &--medio {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+  }
+
+  &--grande {
+    width: 96px;
+    height: 116px;
+    border-radius: 9px;
+  }
+}
+
+/* =========================
+   TELA 1 — SOLICITAÇÃO
+========================= */
+
+.cabecalho-solicitacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 3px;
+}
+
+.botao-notificacao {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 4px;
+    right: 1px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: $cor-rosa;
+    color: $cor-branco;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+.perfil-motorista {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 11px 28px 0;
+
+  &__texto {
+    padding-top: 7px;
+  }
+
+  h1 {
+    margin: 0 0 4px;
+    color: $cor-azul-escuro;
+    font-size: 23px;
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.55px;
+  }
+
+  p {
+    margin: 0 0 1px;
+    color: $cor-azul-medio;
+    font-size: 13px;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+
+  span {
+    display: block;
+    color: $cor-cinza-texto;
+    font-size: 13px;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+}
+
+.acoes-perfil {
+  display: flex;
+  gap: 13px;
+  padding: 31px 0 0 24px;
+  overflow: visible;
+}
+
+.botao-acao-perfil {
+  flex: 0 0 73px;
+  height: 78px;
+  border: 0;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: $cor-branco;
+  color: #7776a8;
+  box-shadow:
+    0 18px 36px rgba(92, 88, 161, 0.08),
+    0 2px 8px rgba(92, 88, 161, 0.03);
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+
+  span {
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 20px 36px rgba(92, 88, 161, 0.12),
+      0 4px 10px rgba(92, 88, 161, 0.05);
+  }
+
+  &--ativo {
+    background: $cor-rosa;
+    color: $cor-branco;
+    box-shadow:
+      0 24px 42px rgba(238, 91, 154, 0.26),
+      0 8px 16px rgba(238, 91, 154, 0.08);
+  }
+}
+
+.bloco-solicitacao {
+  padding: 49px 22px 0;
+
+  h2 {
+    margin: 0 0 19px 18px;
+    color: $cor-azul-escuro;
+    font-size: 20px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.38px;
+  }
+}
+
+/* =========================
+   CARD DE ROTA
+========================= */
+
+.cartao-rota {
+  background: $cor-branco;
+  border-radius: 18px;
+  box-shadow:
+    0 19px 42px rgba(61, 58, 156, 0.11),
+    0 2px 10px rgba(61, 58, 156, 0.035);
+}
+
+.cartao-rota--solicitacao {
+  padding: 17px 20px 0;
+  min-height: 274px;
+}
+
+.cartao-rota--agenda {
+  padding: 13px 18px 21px;
+  min-height: 154px;
+}
+
+.cartao-rota__cabecalho,
+.cartao-rota__topo-agenda {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cartao-rota__icones {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.mini-icone {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #eeeefb;
+  border-radius: 8px;
+  color: $cor-lilas;
+  background: $cor-branco;
+}
+
+.cartao-rota__passageiro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: right;
+
+  strong {
+    display: block;
+    color: $cor-azul-escuro;
+    font-size: 13px;
+    line-height: 1.08;
+    font-weight: 700;
+  }
+
+  span {
+    display: block;
+    color: $cor-azul-medio;
+    font-size: 9px;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+}
+
+.cartao-rota__faixa {
+  height: 55px;
+  margin: 17px -20px 22px;
+  padding: 0 22px 0 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(255, 246, 250, 0.34), $cor-rosa-claro);
+
+  strong {
+    display: block;
+    color: $cor-rosa;
+    font-size: 12px;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  span {
+    display: block;
+    color: $cor-rosa;
+    opacity: 0.72;
+    font-size: 9px;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+}
+
+.cartao-rota__preco {
+  color: $cor-rosa;
+  font-size: 23px !important;
+  line-height: 1;
+  font-weight: 800 !important;
+  letter-spacing: -1px;
+}
+
+.cartao-rota__avatares {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  .avatar {
+    margin-left: -2px;
+  }
+}
+
+.icone-destaque {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-right: 2px;
+  border-radius: 10px;
+  color: $cor-rosa;
+  background: $cor-rosa-claro;
+}
+
+.trajeto {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 11px;
+
+  &__marcadores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  &__ponto {
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 6px;
+    background: $cor-lilas;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 999px;
+      background: $cor-branco;
+    }
+  }
+
+  &__ponto--destino {
+    width: 13px;
+    height: 13px;
+    border-radius: 5px;
+    opacity: 0.85;
+  }
+
+  &__linha {
+    width: 1px;
+    height: 34px;
+    border-left: 1px dashed #e8e8f6;
+  }
+
+  &__conteudo {
+    min-width: 0;
+  }
+
+  &__linha-texto {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  strong {
+    color: $cor-azul-escuro;
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.42px;
+  }
+
+  span {
+    color: $cor-cinza-texto;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  small {
+    display: block;
+    margin: 10px 0 12px;
+    color: $cor-cinza-texto;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 500;
+  }
+}
+
+.cartao-rota__acoes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 17px;
+  margin-top: 13px;
+}
+
+.botao-recusar,
+.botao-aceitar {
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.botao-recusar {
+  background: transparent;
+  color: $cor-rosa;
+  font-size: 12px;
+}
+
+.botao-aceitar {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: $cor-azul-principal;
+  color: $cor-branco;
+  box-shadow: 0 18px 28px rgba(48, 43, 220, 0.25);
+  font-size: 12px;
+}
+
+.botao-aceitar--ativo {
+  background: $cor-azul-principal;
+  box-shadow: 0 18px 28px rgba(48, 43, 220, 0.25);
+}
+
+/* =========================
+   TELA 2 — RIDE
+========================= */
+
+.tela-corridas {
+  background: $cor-branco;
+
+  .barra-status {
+    position: absolute;
+    inset: 0 0 auto 0;
+    color: $cor-branco;
+  }
+
+  .sinal {
+    background:
+      linear-gradient(to top, #ffffff 30%, transparent 30%) 0 100% / 3px 100% no-repeat,
+      linear-gradient(to top, #ffffff 45%, transparent 45%) 5px 100% / 3px 100% no-repeat,
+      linear-gradient(to top, #ffffff 65%, transparent 65%) 10px 100% / 3px 100% no-repeat,
+      linear-gradient(to top, #ffffff 85%, transparent 85%) 15px 100% / 3px 100% no-repeat;
+  }
+
+  .wifi-status {
+    border-color: $cor-branco;
+  }
+
+  .bateria,
+  .bateria::after {
+    background: $cor-branco;
+  }
+}
+
+.topo-corridas {
+  position: relative;
+  height: 259px;
+  padding-top: 45px;
+  background: $cor-azul-principal;
+  color: $cor-branco;
+
+  &__navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 23px 0;
+  }
+
+  h1 {
+    margin: 20px 0 0 31px;
+    color: $cor-branco;
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.78px;
+  }
+}
+
+.calendario-corrida {
+  position: absolute;
+  left: 21px;
+  right: 21px;
+  bottom: -18px;
+  height: 111px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.calendario-corrida__dia {
+  width: 52px;
+  height: 70px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+
+  strong {
+    font-size: 21px;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  span {
+    font-size: 12px;
+    line-height: 1.08;
+    font-weight: 500;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    color: $cor-branco;
+  }
+}
+
+.calendario-corrida__dia--selecionado {
+  width: 72px;
+  height: 130px;
+  margin-bottom: -9px;
+  border-radius: 17px;
+  background: $cor-branco;
+  color: $cor-azul-principal;
+  box-shadow: 0 18px 32px rgba(51, 46, 165, 0.20);
+
+  svg {
+    margin-bottom: 11px;
+  }
+
+  strong {
+    font-size: 23px;
+  }
+
+  span {
+    color: $cor-azul-principal;
+  }
+
+  &:hover {
+    color: $cor-azul-principal;
+    transform: translateY(-2px);
+  }
+}
+
+.lista-corridas {
+  padding: 70px 22px 0;
+  display: grid;
+  gap: 43px;
+}
+
+/* =========================================================
+   AJUSTE FINO DE FIDELIDADE VISUAL — REFERÊNCIA MOBILE
+   Cole este bloco no FINAL do arquivo global.scss
+========================================================= */
+
+/* Remove borda preta de foco que apareceu no botão Rating */
+button:focus,
+button:focus-visible,
+.botao-acao-perfil:focus,
+.botao-acao-perfil:focus-visible {
+  outline: none;
+}
+
+/* Proporção geral do celular mais próxima da imagem de referência */
+.moldura-celular {
+  width: 330px;
+  height: 700px;
+  border-radius: 30px;
+}
+
+/* Ajuste da distância entre os dois aparelhos */
+.vitrine-celulares {
+  gap: 48px;
+}
+
+/* =========================
+   TELA 1 — AJUSTE FINO
+========================= */
+
+.cabecalho-solicitacao {
+  padding: 5px 24px 0;
+}
+
+.perfil-motorista {
+  padding: 5px 28px 0;
+  gap: 19px;
+}
+
+.avatar--grande {
+  width: 96px;
+  height: 116px;
+  border-radius: 9px;
+  object-position: center;
+}
+
+.perfil-motorista h1 {
+  font-size: 22px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.45px;
+  margin-bottom: 3px;
+}
+
+.perfil-motorista p {
+  font-size: 13px;
+  line-height: 1.22;
+}
+
+.perfil-motorista span {
+  font-size: 13px;
+  line-height: 1.22;
+}
+
+/* Botões do menu Ride / Message / Rating / My feed */
+.acoes-perfil {
+  padding-top: 28px;
+  padding-left: 24px;
+  gap: 12px;
+}
+
+.botao-acao-perfil {
+  flex-basis: 73px;
+  height: 78px;
+  border-radius: 16px;
+}
+
+.botao-acao-perfil span {
+  font-size: 10px;
+}
+
+.botao-acao-perfil--ativo {
+  background: #ee5b9a;
+  box-shadow:
+    0 23px 42px rgba(238, 91, 154, 0.24),
+    0 6px 12px rgba(238, 91, 154, 0.08);
+}
+
+/* Aproxima o título New ride request da posição da referência */
+.bloco-solicitacao {
+  padding-top: 43px;
+}
+
+.bloco-solicitacao h2 {
+  margin-left: 18px;
+  margin-bottom: 19px;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: -0.35px;
+}
+
+/* Card da solicitação */
+.cartao-rota--solicitacao {
+  min-height: 274px;
+  padding: 17px 20px 0;
+}
+
+.cartao-rota__faixa {
+  height: 55px;
+  margin-top: 17px;
+  margin-bottom: 22px;
+}
+
+.cartao-rota__preco {
+  font-size: 23px !important;
+  font-weight: 800 !important;
+}
+
+/* Texto das rotas */
+.trajeto strong {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.42px;
+}
+
+.trajeto small {
+  font-size: 10px;
+}
+
+.trajeto span {
+  font-size: 13px;
+}
+
+/* Botões Decline / Accept */
+.cartao-rota__acoes {
+  margin-top: 13px;
+  gap: 17px;
+}
+
+.botao-aceitar {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: #302bdc;
+  color: #ffffff;
+}
+
+.botao-aceitar--ativo {
+  background: #302bdc;
+  color: #ffffff;
+}
+
+/* =========================
+   TELA 2 — AJUSTE FINO
+========================= */
+
+/* A status bar precisa ficar dentro do azul, como na referência */
+.tela-corridas .barra-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Altura do bloco azul reduzida para não empurrar os cards para baixo */
+.topo-corridas {
+  height: 248px;
+  padding-top: 45px;
+}
+
+/* Ícones superiores da tela Ride */
+.topo-corridas__navegacao {
+  padding: 12px 23px 0;
+}
+
+/* Título Ride mais alto e mais próximo da referência */
+.topo-corridas h1 {
+  margin: 15px 0 0 31px;
+  font-size: 31px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.75px;
+}
+
+/* Calendário mais próximo do bloco azul original */
+.calendario-corrida {
+  left: 21px;
+  right: 21px;
+  bottom: -15px;
+  height: 108px;
+}
+
+.calendario-corrida__dia {
+  width: 52px;
+  height: 68px;
+}
+
+.calendario-corrida__dia strong {
+  font-size: 21px;
+}
+
+.calendario-corrida__dia span {
+  font-size: 12px;
+}
+
+/* Card branco do dia selecionado */
+.calendario-corrida__dia--selecionado {
+  width: 72px;
+  height: 126px;
+  margin-bottom: -8px;
+  border-radius: 17px;
+  box-shadow: 0 18px 32px rgba(51, 46, 165, 0.18);
+}
+
+.calendario-corrida__dia--selecionado svg {
+  margin-bottom: 10px;
+}
+
+.calendario-corrida__dia--selecionado strong {
+  font-size: 23px;
+}
+
+/* Corrige o maior problema atual: os cards estavam muito baixos */
+.lista-corridas {
+  padding: 43px 22px 0;
+  gap: 37px;
+}
+
+/* Cards da segunda tela */
+.cartao-rota--agenda {
+  min-height: 154px;
+  padding: 13px 18px 21px;
+  border-radius: 18px;
+}
+
+.cartao-rota__topo-agenda {
+  margin-bottom: 20px;
+}
+
+.cartao-rota__avatares {
+  gap: 7px;
+}
+
+.avatar--pequeno {
+  width: 39px;
+  height: 39px;
+  border-radius: 9px;
+}
+
+.icone-destaque {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+/* Rota nos cards da segunda tela */
+.cartao-rota--agenda .trajeto {
+  grid-template-columns: 18px 1fr;
+  gap: 11px;
+}
+
+.cartao-rota--agenda .trajeto__linha {
+  height: 34px;
+}
+
+.cartao-rota--agenda .trajeto strong {
+  font-size: 18px;
+}
+
+.cartao-rota--agenda .trajeto small {
+  margin: 10px 0 12px;
+}
+
+.cartao-rota--agenda .trajeto span {
+  font-size: 13px;
+}
