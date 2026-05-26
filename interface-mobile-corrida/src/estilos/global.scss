@@ -684,12 +684,6 @@ button {
   gap: 43px;
 }
 
-/* =========================================================
-   AJUSTE FINO DE FIDELIDADE VISUAL — REFERÊNCIA MOBILE
-   Cole este bloco no FINAL do arquivo global.scss
-========================================================= */
-
-/* Remove borda preta de foco que apareceu no botão Rating */
 button:focus,
 button:focus-visible,
 .botao-acao-perfil:focus,
@@ -697,21 +691,15 @@ button:focus-visible,
   outline: none;
 }
 
-/* Proporção geral do celular mais próxima da imagem de referência */
 .moldura-celular {
   width: 330px;
   height: 700px;
   border-radius: 30px;
 }
 
-/* Ajuste da distância entre os dois aparelhos */
 .vitrine-celulares {
   gap: 48px;
 }
-
-/* =========================
-   TELA 1 — AJUSTE FINO
-========================= */
 
 .cabecalho-solicitacao {
   padding: 5px 24px 0;
@@ -771,7 +759,6 @@ button:focus-visible,
     0 6px 12px rgba(238, 91, 154, 0.08);
 }
 
-/* Aproxima o título New ride request da posição da referência */
 .bloco-solicitacao {
   padding-top: 43px;
 }
@@ -835,11 +822,6 @@ button:focus-visible,
   color: #ffffff;
 }
 
-/* =========================
-   TELA 2 — AJUSTE FINO
-========================= */
-
-/* A status bar precisa ficar dentro do azul, como na referência */
 .tela-corridas .barra-status {
   position: absolute;
   top: 0;
@@ -847,7 +829,6 @@ button:focus-visible,
   right: 0;
 }
 
-/* Altura do bloco azul reduzida para não empurrar os cards para baixo */
 .topo-corridas {
   height: 248px;
   padding-top: 45px;
@@ -858,7 +839,6 @@ button:focus-visible,
   padding: 12px 23px 0;
 }
 
-/* Título Ride mais alto e mais próximo da referência */
 .topo-corridas h1 {
   margin: 15px 0 0 31px;
   font-size: 31px;
@@ -867,7 +847,6 @@ button:focus-visible,
   letter-spacing: -0.75px;
 }
 
-/* Calendário mais próximo do bloco azul original */
 .calendario-corrida {
   left: 21px;
   right: 21px;
@@ -888,7 +867,6 @@ button:focus-visible,
   font-size: 12px;
 }
 
-/* Card branco do dia selecionado */
 .calendario-corrida__dia--selecionado {
   width: 72px;
   height: 126px;
@@ -905,13 +883,11 @@ button:focus-visible,
   font-size: 23px;
 }
 
-/* Corrige o maior problema atual: os cards estavam muito baixos */
 .lista-corridas {
   padding: 43px 22px 0;
   gap: 37px;
 }
 
-/* Cards da segunda tela */
 .cartao-rota--agenda {
   min-height: 154px;
   padding: 13px 18px 21px;
@@ -938,7 +914,6 @@ button:focus-visible,
   border-radius: 10px;
 }
 
-/* Rota nos cards da segunda tela */
 .cartao-rota--agenda .trajeto {
   grid-template-columns: 18px 1fr;
   gap: 11px;
