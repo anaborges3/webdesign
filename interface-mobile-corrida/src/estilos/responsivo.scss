@@ -1,12 +1,143 @@
+@media (max-width: 1024px) {
+  .pagina {
+    padding: 40px 20px;
+  }
+
+  .vitrine-celulares {
+    gap: 40px;
+  }
+}
+
 @media (max-width: 860px) {
   .pagina {
     align-items: flex-start;
-    padding: 32px 16px;
+    padding: 32px 16px 48px;
   }
 
   .vitrine-celulares {
     flex-direction: column;
+    align-items: center;
     gap: 34px;
+    width: 100%;
+  }
+
+  .moldura-celular {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina {
+    padding: 20px 12px 40px;
+  }
+
+  .vitrine-celulares {
+    gap: 24px;
+  }
+
+  .moldura-celular {
+    width: min(100%, 390px);
+    height: auto;
+    min-height: 620px;
+  }
+
+  .calendario-corrida {
+    left: 14px;
+    right: 14px;
+  }
+
+  .calendario-corrida__dia {
+    width: 46px;
+    height: 62px;
+
+    strong { font-size: 19px; }
+    span   { font-size: 11px; }
+  }
+
+  .calendario-corrida__dia--selecionado {
+    width: 64px;
+    height: 116px;
+    border-radius: 15px;
+
+    strong { font-size: 21px; }
+  }
+
+  .topo-corridas h1 {
+    font-size: 27px;
+    margin-left: 24px;
+  }
+
+  .cartao-rota--solicitacao {
+    padding: 14px 16px 0;
+  }
+
+  .cartao-rota--agenda {
+    padding: 12px 14px 18px;
+  }
+
+  .cartao-rota__faixa {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 430px) {
+  .pagina {
+    padding: 16px 8px 32px;
+  }
+
+  .moldura-celular {
+    width: 100%;
+    max-width: 390px;
+    border-radius: 24px;
+  }
+
+  .perfil-motorista {
+    gap: 14px;
+    padding: 8px 20px 0;
+
+    h1   { font-size: 20px; }
+    p, span { font-size: 12px; }
+  }
+
+  .avatar--grande {
+    width: 82px;
+    height: 100px;
+  }
+
+  .acoes-perfil {
+    gap: 10px;
+    padding-left: 20px;
+  }
+
+  .botao-acao-perfil {
+    flex-basis: 68px;
+    height: 74px;
+    border-radius: 14px;
+  }
+
+  .bloco-solicitacao {
+    padding-top: 36px;
+
+    h2 { font-size: 18px; }
+  }
+
+  .trajeto {
+    strong { font-size: 16px; }
+    span   { font-size: 12px; }
+    small  { font-size: 9px; }
+  }
+
+  .botao-aceitar {
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
+  }
+
+  .lista-corridas {
+    gap: 30px;
   }
 }
 
@@ -14,6 +145,7 @@
   .moldura-celular {
     width: 100%;
     max-width: 330px;
+    border-radius: 22px;
   }
 
   .acoes-perfil {
@@ -21,6 +153,187 @@
   }
 
   .botao-acao-perfil {
-    flex-basis: 69px;
+    flex-basis: 64px;
+    height: 70px;
+  }
+
+  .calendario-corrida__dia {
+    width: 42px;
+    height: 58px;
+  }
+
+  .calendario-corrida__dia--selecionado {
+    width: 58px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 360px) {
+  .pagina {
+    padding: 12px 4px 28px;
+  }
+
+  .moldura-celular {
+    border-radius: 18px;
+  }
+
+  .barra-status {
+    height: 40px;
+    padding: 0 18px;
+    font-size: 13px;
+  }
+
+  .perfil-motorista {
+    gap: 12px;
+    padding: 6px 16px 0;
+
+    h1 { font-size: 18px; }
+  }
+
+  .avatar--grande {
+    width: 72px;
+    height: 88px;
+    border-radius: 8px;
+  }
+
+  .acoes-perfil {
+    gap: 8px;
+    padding-left: 16px;
+  }
+
+  .botao-acao-perfil {
+    flex-basis: 60px;
+    height: 66px;
+    border-radius: 12px;
+    gap: 7px;
+
+    span { font-size: 9px; }
+  }
+
+  .bloco-solicitacao {
+    padding-top: 28px;
+
+    h2 {
+      font-size: 17px;
+      margin-left: 14px;
+    }
+  }
+
+  .cartao-rota--solicitacao {
+    padding: 12px 14px 0;
+  }
+
+  .cartao-rota__faixa {
+    margin-left: -14px;
+    margin-right: -14px;
+    height: 50px;
+  }
+
+  .cartao-rota__preco {
+    font-size: 20px !important;
+  }
+
+  .trajeto {
+    strong { font-size: 15px; letter-spacing: -0.3px; }
+  }
+
+  .topo-corridas h1 {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+
+  .calendario-corrida {
+    left: 10px;
+    right: 10px;
+  }
+
+  .calendario-corrida__dia {
+    width: 38px;
+    height: 54px;
+
+    strong { font-size: 17px; }
+    span   { font-size: 10px; }
+  }
+
+  .calendario-corrida__dia--selecionado {
+    width: 52px;
+    height: 104px;
+    border-radius: 13px;
+
+    strong { font-size: 19px; }
+
+    svg { margin-bottom: 8px; }
+  }
+
+  .lista-corridas {
+    padding-top: 36px;
+    gap: 26px;
+  }
+
+  .cartao-rota--agenda {
+    padding: 10px 12px 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .pagina {
+    padding: 8px 0 20px;
+  }
+
+  .moldura-celular {
+    border-radius: 14px;
+  }
+
+  .perfil-motorista {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 14px 0;
+
+    h1 { font-size: 17px; }
+  }
+
+  .avatar--grande {
+    width: 60px;
+    height: 72px;
+  }
+
+  .acoes-perfil {
+    gap: 6px;
+    padding-left: 14px;
+    flex-wrap: wrap;
+  }
+
+  .botao-acao-perfil {
+    flex-basis: 56px;
+    height: 62px;
+  }
+
+  .bloco-solicitacao h2 {
+    font-size: 15px;
+    margin-left: 12px;
+  }
+
+  .cartao-rota__preco {
+    font-size: 18px !important;
+  }
+
+  .topo-corridas h1 {
+    font-size: 22px;
+    margin-left: 16px;
+  }
+
+  .calendario-corrida {
+    left: 6px;
+    right: 6px;
+  }
+
+  .calendario-corrida__dia {
+    width: 34px;
+  }
+
+  .calendario-corrida__dia--selecionado {
+    width: 46px;
+    height: 96px;
   }
 }

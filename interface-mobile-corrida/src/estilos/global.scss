@@ -607,11 +607,11 @@ button {
   position: absolute;
   left: 21px;
   right: 21px;
-  bottom: -18px;
-  height: 111px;
+  bottom: -30px;
+  height: 130px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .calendario-corrida__dia {
@@ -654,7 +654,6 @@ button {
 .calendario-corrida__dia--selecionado {
   width: 72px;
   height: 130px;
-  margin-bottom: -9px;
   border-radius: 17px;
   background: $cor-branco;
   color: $cor-azul-principal;
@@ -850,8 +849,8 @@ button:focus-visible,
 .calendario-corrida {
   left: 21px;
   right: 21px;
-  bottom: -15px;
-  height: 108px;
+  bottom: -30px;
+  height: 130px;
 }
 
 .calendario-corrida__dia {
@@ -870,7 +869,6 @@ button:focus-visible,
 .calendario-corrida__dia--selecionado {
   width: 72px;
   height: 126px;
-  margin-bottom: -8px;
   border-radius: 17px;
   box-shadow: 0 18px 32px rgba(51, 46, 165, 0.18);
 }
